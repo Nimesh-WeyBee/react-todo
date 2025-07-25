@@ -9,7 +9,7 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    const req = await fetch("/api/tasks");
+    const req = await fetch("https://react-todo-yv01.onrender.com/tasks");
     const data = await req.json();
     setTasks(data);
   };
@@ -19,7 +19,7 @@ const App = () => {
   }, []);
 
   const addTask = async (task) => {
-    await fetch("/api/tasks", {
+    await fetch("https://react-todo-yv01.onrender.com/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const App = () => {
   };
 
   const updateTask = async (id, updatedField) => {
-    await fetch(`/api/tasks/${id}`, {
+    await fetch(`https://react-todo-yv01.onrender.com/tasks/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const App = () => {
   };
 
   const deleteTask = async (id) => {
-    await fetch(`/api/tasks/${id}`, {
+    await fetch(`https://react-todo-yv01.onrender.com/tasks/${id}`, {
       method: "DELETE",
     });
     fetchTasks();
